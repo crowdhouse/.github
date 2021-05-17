@@ -24,6 +24,6 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           branch: 'chore-lokalise-${{ github.ref }}'
-          commit-message: 'Chore: Lokalise'
+          commit-message: 'chore: lokalise ${{ github.ref }}'
           delete-branch: true
-          title: 'Chore: Lokalise'
+          title: 'chore: lokalise ${{ github.ref }}'
