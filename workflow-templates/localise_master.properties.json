@@ -1,0 +1,13 @@
+{
+  "name": "Update Lokalise for Master Workflow",
+  "description": "Update lokalise for master workflow template.",
+  "iconName": "localise",
+  "categories": [
+      "node",
+      "JavaScript",
+      "TypeScript"
+  ],
+  "filePatterns": [
+      "package.json$"
+  ]
+}

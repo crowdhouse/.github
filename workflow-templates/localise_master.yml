@@ -1,0 +1,30 @@
+name: Update lokalise for master
+
+on:
+  workflow_dispatch:
+    branches: master
+
+jobs:
+  lokalise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+      - name: Update lokalise
+        env:
+          LOKALISE_TOKEN: ${{ secrets.LOKALISE_TOKEN }}
+        run: |
+          curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
+          export PATH=`pwd`/bin:${PATH}
+          npm install
+          npm run lokalise
+          rm -r bin
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: 'chore-update-lokalise'
+          commit-message: 'Chore: update lokalise'
+          delete-branch: true
+          title: 'Chore: update lokalise'
