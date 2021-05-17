@@ -1,0 +1,13 @@
+{
+  "name": "Lokalise Workflow",
+  "description": "Lokalise workflow template.",
+  "iconName": "lokalise",
+  "categories": [
+      "node",
+      "JavaScript",
+      "TypeScript"
+  ],
+  "filePatterns": [
+      "package.json$"
+  ]
+}

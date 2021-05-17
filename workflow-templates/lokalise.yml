@@ -1,8 +1,7 @@
-name: Update lokalise for master
+name: Lokalise
 
 on:
   workflow_dispatch:
-    branches: master
 
 jobs:
   lokalise:
@@ -12,7 +11,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 15.x
-      - name: Update lokalise
+      - name: Run Lokalise
         env:
           LOKALISE_TOKEN: ${{ secrets.LOKALISE_TOKEN }}
         run: |
@@ -24,7 +23,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          branch: 'chore-update-lokalise'
-          commit-message: 'Chore: update lokalise'
+          branch: 'chore-lokalise-${{ github.ref }}'
+          commit-message: 'Chore: Lokalise'
           delete-branch: true
-          title: 'Chore: update lokalise'
+          title: 'Chore: Lokalise'
